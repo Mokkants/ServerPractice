@@ -4,7 +4,7 @@ const PORT=3000;
 
 var middleware={
   requireAuthentication: function(req,res,next){
-    console.log("Private route hit");
+    console.log("Private route hit!");
     next();
   },
   logger: function(req,res,next){
@@ -18,7 +18,7 @@ app.use(middleware.logger);
 //app.use(middleware.requireAuthentication);
 
 app.get("/about",middleware.requireAuthentication,function(req,res){
-  res.send("About us");
+  res.send("About us!");
 })
 
 app.use(express.static(__dirname+"/public"));
